@@ -59,9 +59,7 @@ public class ClienteDaoJDBC {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID);
             stmt.setInt(1, cliente.getIdCliente());
-            System.out.println(stmt);
             rs = stmt.executeQuery();
-            System.out.println(rs);
 //            stmt = (PreparedStatement) conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 //            stmt.setInt(1, cliente.getIdCliente());
 //            rs = stmt.executeQuery(SQL_SELECT_BY_ID);
@@ -70,6 +68,7 @@ public class ClienteDaoJDBC {
                 System.out.println("*******************DATOS VACIOS********************");
             } else {
                 while (rs.next()) {
+
                     String nombre = rs.getString("nombre");
                     String apellido = rs.getString("apellido");
                     String email = rs.getString("email");
